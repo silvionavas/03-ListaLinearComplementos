@@ -127,7 +127,7 @@ void excluirElemento()
 	if(nElementos == 0){
 		
 		cout << "Lista vazia - nao ha elementos para excluir" << endl; 
-	
+		return;
 	}
 
 	int valor;
@@ -135,17 +135,16 @@ void excluirElemento()
 	cin >>valor;
 	int pos = posicaoElemento(valor);
 
-	for(int i = 0; i < nElementos -1 ; i++){
-		if(valor == lista[i]){
-			for(int j = i; j < nElementos -1 ; j++ )
-			{
-			lista[j] = lista[j+1];
-			}
-			nElementos--;
-			return;	
-		} 
+	if(pos == -1){
+		cout << "Elemento nao encontrado" << endl;
+		return; 
 	}
-	cout << "Elemento nao encontrado" << endl;
+
+	for(int j = pos; j < nElementos -1 ; j++){
+		lista[j] = lista[j+1];
+		}
+		nElementos--;
+		cout << "Elemento nao encontrado" << endl;
 
 }
 
