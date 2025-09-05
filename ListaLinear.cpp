@@ -105,7 +105,7 @@ void inserirElemento()
 
 		if (pos != -1)
 		{
-			cout << "Elemento já esta na lista" << endl;
+			cout << "Elemento ja esta na lista" << endl;
 		}
 		else
 		{
@@ -120,9 +120,32 @@ void inserirElemento()
 
 }
 
-void excluirElemento()
-{
 
+void excluirElemento()
+{	
+
+	if(nElementos == 0){
+		
+		cout << "Lista vazia - nao ha elementos para excluir" << endl; 
+	
+	}
+
+	int valor;
+	cout << "Digite um numero para exclusao" << endl;
+	cin >>valor;
+	int pos = posicaoElemento(valor);
+
+	for(int i = 0; i < nElementos -1 ; i++){
+		if(valor == lista[i]){
+			for(int j = i; j < nElementos -1 ; j++ )
+			{
+			lista[j] = lista[j+1];
+			}
+			nElementos--;
+			return;	
+		} 
+	}
+	cout << "Elemento nao encontrado" << endl;
 
 }
 
